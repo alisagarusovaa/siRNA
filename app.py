@@ -110,9 +110,6 @@ def Rainolds(guide_siRNA, passenger):
         efff += 100 / 7
     if len(passenger) > 12 and passenger[::-1][12] != 'G':
         efff += 100 / 7
-    if counter == 2:
-        efff += 100 / 6
-    return min(efff, 100) # <-- Добавить вот это
 
     counter = 0
     gc_counter = 0
@@ -123,8 +120,8 @@ def Rainolds(guide_siRNA, passenger):
         counter += 1
     if counter == 2:
         efff += 100 / 6
-    return efff
-
+    return min(efff, 100)
+    
 def Amartsguiui(guide_siRNA):
     eff_A = 0
     if len(guide_siRNA) > 18:
@@ -163,7 +160,7 @@ def analyze(DNA_seq):
     eff_list = []
 
     for i in range(len(DNA_seq) - 20):
-        DNA = DNA_seq[i:i + 23]
+        DNA = DNA_seq[i:i + 21]
         RNA = sense(DNA)
         guide_siRNA = guide_qq(RNA)
         passenger_siRNA = passenger(DNA)
