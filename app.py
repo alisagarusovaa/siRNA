@@ -185,9 +185,9 @@ def analyze(DNA_seq):
                 "mRNA, 5'-3'": RNA,
                 "guide_siRNA, 5'-3'": guide_siRNA,
                 "passenger, 3'-5'": passenger_siRNA,
-                "efficiency_1": eff,
-                "efficiency_2": efff,
-                "efficiency_3": e_ff,
+                "Соответствие правилу Уи-тей": eff,
+                "Соответствие правилу Рейнольдса": efff,
+                "Соответствие правилу Амарцгуиуи": e_ff,
                 "Average efficiency": Eff_av,
                 "Maximum efficiency": Eff_max,
             })
