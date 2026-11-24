@@ -200,7 +200,7 @@ DNA_seq = st.text_input("Введите последовательность Д�
 if DNA_seq:
     results = analyze(DNA_seq.strip())
     if results is None:
-        st.warning("Последовательность слишком короткая (нужно минимум 24 нуклеотида).")
+        st.warning("Последовательность слишком короткая (нужно минимум 21 нуклеотид).")
     else:
         for r in results:
             st.subheader("Результат")
