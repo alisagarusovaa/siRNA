@@ -46,26 +46,32 @@ def passenger(DNA):
 
 def yi_tel(guide_siRNA, passenger):
     eff = 0
+    au_counter = 0
     for nucl in guide_siRNA:
         if nucl == 'A' or nucl == 'U':
-            eff += 25
-    AU_counter = 0
+            au_counter += 1
+    # Считаем процент AU в цепочке (максимум 100)
+    eff += (au_counter / len(guide_siRNA)) * 100 * 0.5 # <-- вес правила (например, 50%)
+    
+    AU_counter_7 = 0
     for nucl in guide_siRNA[:7]:
         if nucl == 'A' or nucl == 'U':
-            AU_counter += 1
-    if (AU_counter / 7) * 100 > 50:
-        eff += 25
+            AU_counter_7 += 1
+    if (AU_counter_7 / 7) * 100 > 50:
+        eff += 25  # добавляем бонусные баллы
+        
     gc_counter = 0
+    max_gc = 0
     for nucl in guide_siRNA:
         if nucl == 'G' or nucl == 'C':
             gc_counter += 1
-            if gc_counter > 10:
-                break
+            max_gc = max(max_gc, gc_counter)
         else:
             gc_counter = 0
-    if gc_counter <= 10:
+    if max_gc <= 10:
         eff += 25
-    return eff
+        
+    return min(eff, 100) # <-- Ограничиваем максимумом 100%
 
 def rev_complement(RNA):
     rev_compl = ''
@@ -104,6 +110,9 @@ def Rainolds(guide_siRNA, passenger):
         efff += 100 / 7
     if len(passenger) > 12 and passenger[::-1][12] != 'G':
         efff += 100 / 7
+    if counter == 2:
+        efff += 100 / 6
+    return min(efff, 100) # <-- Добавить вот это
 
     counter = 0
     gc_counter = 0
