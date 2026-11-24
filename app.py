@@ -196,7 +196,7 @@ def analyze(DNA_seq):
 # ---- Streamlit-интерфейс ----
 st.title("Анализ эффективности                                      малой Интерферирующей РНК")
 
-DNA_seq = st.text_input("Введите последовательность ДНК от 24 нуклеотидов(5'-3'):")
+DNA_seq = st.text_input("Введите последовательность ДНК от 21 нуклеотидов(5'-3'):")
 if DNA_seq:
     results = analyze(DNA_seq.strip())
     if results is None:
