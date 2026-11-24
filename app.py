@@ -154,7 +154,7 @@ def analyze(DNA_seq):
     eff_list = []
 
     for i in range(len(DNA_seq) - 20):
-        DNA = DNA_seq[i:i + 20]
+        DNA = DNA_seq[i:i + 23]
         RNA = sense(DNA)
         guide_siRNA = guide_qq(RNA)
         passenger_siRNA = passenger(DNA)
