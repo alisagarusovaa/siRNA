@@ -209,9 +209,9 @@ if DNA_seq:
         st.warning("Последовательность слишком короткая (нужно минимум 21 нуклеотид).")
     else:
         for r in results:
-        st.subheader("Результат")
-        for key, value in r.items():
-            if isinstance(value, float):
-                st.write(f"**{key}:** {round(value, 3)} %")
-            else:
-                st.write(f"**{key}:** {value}")
+            st.subheader("Результат")
+            for key, value in r.items():
+                if isinstance(value, float):
+                    st.write(f"**{key}:** {round(value, 3)} %")
+                else:
+                    st.write(f"**{key}:** {value}")
