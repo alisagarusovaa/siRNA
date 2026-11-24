@@ -153,8 +153,8 @@ def analyze(DNA_seq):
     DNA_list = []
     eff_list = []
 
-    for i in range(len(DNA_seq) - 23):
-        DNA = DNA_seq[i:i + 23]
+    for i in range(len(DNA_seq) - 20):
+        DNA = DNA_seq[i:i + 20]
         RNA = sense(DNA)
         guide_siRNA = guide_qq(RNA)
         passenger_siRNA = passenger(DNA)
@@ -188,8 +188,8 @@ def analyze(DNA_seq):
                 "Соответствие правилу Уи-тей": eff,
                 "Соответствие правилу Рейнольдса": efff,
                 "Соответствие правилу Амарцгуиуи": e_ff,
-                "Average efficiency": Eff_av,
-                "Maximum efficiency": Eff_max,
+                "Среднее соответствие": Eff_av,
+                "Максимальное соответствие": Eff_max,
             })
     return results
 
